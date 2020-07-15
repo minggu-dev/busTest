@@ -18,4 +18,9 @@ public class BusServiceImpl implements BusService {
 		return dao.selectAllBus(page);
 	}
 
+	@Override
+	public List<BusVO> select2020AllBus(Integer page, Integer start) {
+		return dao.select2020Allbus(page, start);
+	}
+
 }
