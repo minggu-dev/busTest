@@ -8,4 +8,5 @@ import sample.test.mino.vo.PageVO;
 public interface BusDao {
 	List<BusVO> selectAllBus(PageVO page);
 	int totalCount();
+	List<BusVO> select2020Allbus(Integer page, Integer start);
 }
