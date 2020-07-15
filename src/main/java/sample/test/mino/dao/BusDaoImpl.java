@@ -16,16 +16,17 @@ public class BusDaoImpl implements BusDao {
 	@Inject
     private SqlSession sqlSession;
     
+	private static final String Namespace2020 = "sample.test.mapper.busMapper";
     private static final String Namespace = "sample.test.mapper.busPreMapper";
     
 	@Override
 	public List<BusVO> selectAllBus(PageVO page) {
-		return sqlSession.selectList(Namespace + ".selectBusList", page);
+		return sqlSession.selectList(Namespace2020 + ".selectBusList", page);
 	}
 	
 	@Override
 	public int totalCount() {
-		return sqlSession.selectOne(Namespace + ".totalCount");
+		return sqlSession.selectOne(Namespace2020 + ".totalCount");
 	}
 
 	@Override

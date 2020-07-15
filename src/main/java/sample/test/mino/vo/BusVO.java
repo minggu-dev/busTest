@@ -1,6 +1,7 @@
 package sample.test.mino.vo;
 import java.util.Date;
 public class BusVO {
+	private int BID;
 	private String BUSYM;
 	private String ROUTEID;
 	private String ROUTENO;
@@ -392,6 +393,13 @@ public class BusVO {
 	}
 	public void setPOSTDATE(Date pOSTDATE) {
 		POSTDATE = pOSTDATE;
+	}
+	
+	public int getBID() {
+		return BID;
+	}
+	public void setBID(int bID) {
+		BID = bID;
 	}
 	@Override
 	public String toString() {
