@@ -8,6 +8,6 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias alias="boardVO" type="sample.test.mino.vo.BoardVO" />
+		<typeAlias alias="busVO" type="sample.test.mino.vo.BusVO"/>
 	</typeAliases>
 </configuration>

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -21,115 +21,74 @@ $(function(){
 	$('#MH_btn').click(function(){
 		alert("mh");
 	})
-	var data = [
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Tiger Nixon",
-	        "System Architect",
-	        "Edinburgh",
-	        "5421",
-	        "2011/04/25",
-	        "$3,120"
-	    ],
-	    [
-	        "Garrett Winters",
-	        "Director",
-	        "Edinburgh",
-	        "8422",
-	        "2011/07/25",
-	        "$5,300"
-	    ]
-	]
 	
+	
+	var columns = ['ROUTENO', 'ROUTENAME', 'ROUTEID', 'POSTDATE', 'BUSYM', 'BUSSTOPNAME', 'BUSSTOPID', 'BUSSTOPARS', '23_BUSON', '23_BUSOFF', '22_BUSON', '22_BUSOFF', '21_BUSON' ,'21_BUSOFF' ,'20_BUSON', '20_BUSOFF', '19_BUSON', '19_BUSOFF' ,'18_BUSON' ,'18_BUSOFF' ,'17_BUSON' ,'17_BUSOFF', '16_BUSON', '16_BUSOFF', '15_BUSON', '15_BUSOFF', '14_BUSON', '14_BUSOFF', '13_BUSON' ,'13_BUSOFF', '12_BUSON', '12_BUSOFF', '11_BUSON', '11_BUSOFF', '10_BUSON', '10_BUSOFF', '09_BUSON', '09_BUSOFF', '08_BUSON' ,'08_BUSOFF' ,'07_BUSON', '07_BUSOFF', '06_BUSON', '06_BUSOFF', '05_BUSON', '05_BUSOFF', '04_BUSON', '04_BUSOFF', '03_BUSON', '03_BUSOFF' ,'02_BUSON', '02_BUSOFF', '01_BUSON', '01_BUSOFF', '00_BUSON', '00_BUSOFF'];
 	$('#myTable').DataTable({
-	    data: data
+	    "ajax": "/test",
+	    "pageLength" : 20,
+	    "bAutoWidth": true,
+	    "columns": [
+	    	{"data": "busym"},
+	    	{"data": "routeid"},
+	    	{"data": "routeno"},
+	    	{"data": "routename"},
+	    	{"data": "busstopid"},
+	    	{"data": "busstopars"},
+	    	{"data": "busstopname"},
+	    	{"data": "bus00ON"},
+	    	{"data": "bus00OFF"},
+	    	{"data": "bus01ON"},
+	    	{"data": "bus01OFF"},
+	    	{"data": "bus02ON"},
+	    	{"data": "bus02OFF"},
+	    	{"data": "bus03ON"},
+	    	{"data": "bus03OFF"},
+	    	{"data": "bus04ON"},
+	    	{"data": "bus04OFF"},
+	    	{"data": "bus05ON"},
+	    	{"data": "bus05OFF"},
+	    	{"data": "bus06ON"},
+	    	{"data": "bus06OFF"},
+	    	{"data": "bus07ON"},
+	    	{"data": "bus07OFF"},
+	    	{"data": "bus08ON"},
+	    	{"data": "bus08OFF"},
+	    	{"data": "bus09ON"},
+	    	{"data": "bus09OFF"},
+	    	{"data": "bus10ON"},
+	    	{"data": "bus10OFF"},
+	    	{"data": "bus11ON"},
+	    	{"data": "bus11OFF"},
+	    	{"data": "bus12ON"},
+	    	{"data": "bus12OFF"},
+	    	{"data": "bus13ON"},
+	    	{"data": "bus13OFF"},
+	    	{"data": "bus14ON"},
+	    	{"data": "bus14OFF"},
+	    	{"data": "bus15ON"},
+	    	{"data": "bus15OFF"},
+	    	{"data": "bus16ON"},
+	    	{"data": "bus16OFF"},
+	    	{"data": "bus17ON"},
+	    	{"data": "bus17OFF"},
+	    	{"data": "bus18ON"},
+	    	{"data": "bus18OFF"},
+	    	{"data": "bus19ON"},
+	    	{"data": "bus19OFF"},
+	    	{"data": "bus20ON"},
+	    	{"data": "bus20OFF"},
+	    	{"data": "bus21ON"},
+	    	{"data": "bus21OFF"},
+	    	{"data": "bus22ON"},
+	    	{"data": "bus22OFF"},
+	    	{"data": "bus23ON"},
+	    	{"data": "bus23OFF"},
+	    	{"data": "postdate"}	    	
+	    ]
 	} );
 })
 </script>
-<style>
-	th, td{
-		width:100px;
-	}
-</style>
 </head>
 <body>
 <div class="container">
@@ -153,6 +112,7 @@ $(function(){
 		    <tbody>
 		    </tbody>
 		</table>
+		
 	</div>
 </div>
 </body>
