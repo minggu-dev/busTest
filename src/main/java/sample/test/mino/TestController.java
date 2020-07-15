@@ -37,4 +37,15 @@ public class TestController {
 		map.put("data", list);
 		return map;
 	}
+	
+	@ResponseBody
+	@RequestMapping("test123")
+	public Map<String,List<BusVO>> test123(Model model, Integer length, Integer start) throws Exception {
+		System.out.println("length: "+length);
+		System.out.println("start: "+start);
+		List<BusVO> list = service.select2020AllBus(length, start);
+		Map<String, List<BusVO>> map = new HashMap<String, List<BusVO>>();
+		map.put("data", list);
+		return map;
+	}
 }
