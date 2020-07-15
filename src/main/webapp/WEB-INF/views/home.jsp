@@ -23,9 +23,11 @@ $(function(){
 	})
 	
 	$('#myTable').DataTable({
-	    "ajax": "/test",
-	    "pageLength" : 20,
+	    "pageLength" : 10,
 	    "bAutoWidth": true,
+	    "serverSide" : true,
+	    "processing" : true,
+	    "ajax": "/test",
 	    "columns": [
 	    	{"data": "busym"},
 	    	{"data": "routeid"},

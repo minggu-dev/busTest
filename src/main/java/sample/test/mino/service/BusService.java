@@ -3,7 +3,9 @@ package sample.test.mino.service;
 import java.util.List;
 
 import sample.test.mino.vo.BusVO;
+import sample.test.mino.vo.PageVO;
 
 public interface BusService {
-	List<BusVO> selectAllBus(Integer page);
+	List<BusVO> selectAllBus(PageVO page);
+	int totalCount();
 }

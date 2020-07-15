@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import sample.test.mino.dao.BusDao;
 import sample.test.mino.vo.BusVO;
+import sample.test.mino.vo.PageVO;
 
 @Service
 public class BusServiceImpl implements BusService {
@@ -14,8 +15,13 @@ public class BusServiceImpl implements BusService {
 	private BusDao dao;
 	
 	@Override
-	public List<BusVO> selectAllBus(Integer page) {
+	public List<BusVO> selectAllBus(PageVO page) {
 		return dao.selectAllBus(page);
+	}
+	
+	@Override
+	public int totalCount() {
+		return dao.totalCount();
 	}
 
 }
