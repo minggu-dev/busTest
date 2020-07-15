@@ -24,12 +24,15 @@ public class TestController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/pre2020", method=RequestMethod.GET)
+	public String preindex() {
+		return "pre2020";
+	}
+	
 	@ResponseBody
 	@RequestMapping("test")
 	public Map<String,List<BusVO>> test(Model model, Integer currentPage) throws Exception {
 		List<BusVO> list = service.selectAllBus(currentPage);
-		System.out.println(currentPage);
-		System.out.println(list); 
 		Map<String, List<BusVO>> map = new HashMap<String, List<BusVO>>();
 		map.put("data", list);
 		return map;
