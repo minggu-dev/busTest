@@ -3,19 +3,24 @@
 
 <mapper namespace="sample.test.mapper.busMapper"> 
 <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
-	<select id="selectBusList" resultType="busVO" parameterType="int"> 
+	<select id="selectBusList" resultType="busVO" parameterType="page"> 
 		SELECT * 
 		FROM (SELECT ROWNUM AS RNUM, A.* 
-			FROM "2020BusTable" A)
+			FROM BusTable2020 A)
 		<where>
 			<choose>
-				<when test="_parameter == null">
-					RNUM <![CDATA[<=]]> 20
+				<when test="start == 0">
+					RNUM <![CDATA[<=]]> #{length}
 				</when>
 				<otherwise>
-					RNUM <![CDATA[<=]]> 20 * (#{_parameter} + 1) and RNUM >= 20 * #{_parameter}
+					RNUM <![CDATA[<=]]> #{length} + #{start} and RNUM > #{start}
 				</otherwise>
 			</choose>
-		</where>
+		</where>	
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM BusTable2020
 	</select>
 </mapper>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import sample.test.mino.service.BusService;
 import sample.test.mino.vo.BusVO;
+import sample.test.mino.vo.PageVO;
 
 @Controller
 public class TestController {
@@ -31,10 +32,12 @@ public class TestController {
 	
 	@ResponseBody
 	@RequestMapping("test")
-	public Map<String,List<BusVO>> test(Model model, Integer currentPage) throws Exception {
-		List<BusVO> list = service.selectAllBus(currentPage);
-		Map<String, List<BusVO>> map = new HashMap<String, List<BusVO>>();
+	public Map<String,Object> test(Model model, PageVO page) throws Exception {
+		List<BusVO> list = service.selectAllBus(page);
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("data", list);
+		map.put("recordsTotal",service.totalCount());
+		map.put("recordsFiltered", service.totalCount());
 		return map;
 	}
 	
