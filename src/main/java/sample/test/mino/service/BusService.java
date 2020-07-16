@@ -12,4 +12,5 @@ public interface BusService {
 	BusVO select2020prevBusDetail(Integer id);
 	BusVO selectBus(int bid);
 	int update2020prevBusDetail(Integer id, BusVO bus);
+	int updateBus(BusVO bus);
 }

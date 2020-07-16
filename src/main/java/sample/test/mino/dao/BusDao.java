@@ -12,4 +12,5 @@ public interface BusDao {
 	BusVO selectpre2020busDeatil(Integer id);
 	BusVO selectBus(int bid);
 	int update2020prevBusDetail(Integer id, BusVO bus);
+	int updateBus(BusVO bus);
 }

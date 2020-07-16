@@ -4,9 +4,9 @@
 <mapper namespace="sample.test.mapper.busMapper"> 
 <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
 	<select id="selectBusList" resultType="busVO" parameterType="hashMap"> 
-		SELECT * 
+		SELECT TO_CHAR(PDATE, 'YYYY-MM') AS POSTDATE, B.*
 		FROM (SELECT ROWNUM AS RNUM, A.* 
-			FROM BusTable2020 A)
+			FROM BUSTABLE2020 A) B
 		<where>
 			<if test="page != null">
 				<choose>
@@ -26,6 +26,13 @@
 	
 	<select id="totalCount" resultType="int">
 		SELECT COUNT(*)
-		FROM BusTable2020
+		FROM BUSTABLE2020
 	</select>
+	
+	<update id="updateBus" parameterType="busVO">
+		UPDATE BUSTABLE2020
+		SET BUSYM = #{BUSYM}, ROUTEID = #{ROUTEID}, ROUTENO = #{ROUTENO}, ROUTENAME = #{ROUTENAME}, 
+		BUSSTOPID = #{BUSSTOPID}, BUSSTOPARS = #{BUSSTOPARS}, BUSSTOPNAME = #{BUSSTOPNAME}, PDATE = TO_DATE(#{POSTDATE},'YYYY-MM')
+		WHERE BID = #{BID}
+	</update>
 </mapper>
