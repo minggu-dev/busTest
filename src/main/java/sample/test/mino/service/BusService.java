@@ -9,4 +9,5 @@ public interface BusService {
 	List<BusVO> selectAllBus(PageVO page);
 	int totalCount();
 	List<BusVO> select2020AllBus(Integer page, Integer start);
+	BusVO selectBus(int bid);
 }

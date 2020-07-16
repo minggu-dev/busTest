@@ -1,6 +1,8 @@
 package sample.test.mino.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -21,7 +23,9 @@ public class BusDaoImpl implements BusDao {
     
 	@Override
 	public List<BusVO> selectAllBus(PageVO page) {
-		return sqlSession.selectList(Namespace2020 + ".selectBusList", page);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("page", page);
+		return sqlSession.selectList(Namespace2020 + ".selectBusList", map);
 	}
 	
 	@Override
@@ -33,5 +37,11 @@ public class BusDaoImpl implements BusDao {
 	public List<BusVO> select2020Allbus(Integer page, Integer start) {
 		RowBounds rowBounds = new RowBounds(start, page);
 		return sqlSession.selectList(Namespace + ".select2020BusList", start, rowBounds);
+	}
+	@Override
+	public BusVO selectBus(int bid) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bid", bid);
+		return sqlSession.selectOne(Namespace2020 + ".selectBusList", map);
 	}
 }
