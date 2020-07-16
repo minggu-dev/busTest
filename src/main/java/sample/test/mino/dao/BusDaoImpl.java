@@ -50,4 +50,12 @@ public class BusDaoImpl implements BusDao {
 		map.put("bid", bid);
 		return sqlSession.selectOne(Namespace2020 + ".selectBusList", map);
 	}
+
+	@Override
+	public int update2020prevBusDetail(Integer id, BusVO bus) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("bus", bus);
+		return sqlSession.update(Namespace+".updatePre2020busDeatil", map);
+	}
 }

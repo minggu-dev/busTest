@@ -57,7 +57,7 @@ public class BusVO {
 	private int BUS22OFF;
 	private int BUS23ON;
 	private int BUS23OFF;
-	private Date POSTDATE;
+	private String POSTDATE;
 	public String getBUSYM() {
 		return BUSYM;
 	}
@@ -388,10 +388,10 @@ public class BusVO {
 	public void setBUS23OFF(int bUS23OFF) {
 		BUS23OFF = bUS23OFF;
 	}
-	public Date getPOSTDATE() {
+	public String getPOSTDATE() {
 		return POSTDATE;
 	}
-	public void setPOSTDATE(Date pOSTDATE) {
+	public void setPOSTDATE(String pOSTDATE) {
 		POSTDATE = pOSTDATE;
 	}
 	

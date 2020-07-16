@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -20,10 +20,10 @@ input[type=text]{
 }
 </style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>버스 상세보기!</title>
 </head>
 <body>
-	<form>
+	<form method="POST" action="/pre2020/${bus.BID}" >
 		<table class="col-md-12">
 			<tr>
 				<th colspan="2">RouteId</th><td colspan="2"><input type="text" name="ROUTEID" value="${bus.ROUTEID}"></td>
@@ -118,7 +118,7 @@ input[type=text]{
 				<th>23시</th><td><input type="text" name="BUS23OFF" value="${bus.BUS23OFF}"></td>
 			</tr>
 		</table>
-		<input type="hidden" name="BID" value="${bus.BID}">
+		<input type="submit" value="수정하기">
 	</form>
 </body>
 </html> 

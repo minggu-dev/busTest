@@ -31,10 +31,20 @@ public class TestController {
 		return "pre2020";
 	}
 	
-	@RequestMapping(value="/pre2020/{id}")
+	@RequestMapping(value="/pre2020/{id}", method = RequestMethod.GET)
 	public String prebusDetail(Model model, @PathVariable Integer id) {
 		BusVO bus = service.select2020prevBusDetail(id);
 		model.addAttribute("bus", bus);
+		System.out.println("getgetegeteget");
+		return "prebusDetail";
+	}
+	
+	@RequestMapping(value="/pre2020/{id}", method = RequestMethod.POST)
+	public String updateprebusDetail(Model model, @PathVariable Integer id, BusVO bus) {
+		System.out.println("id의 값은 뭘까요? "+id);
+		int updateBus = service.update2020prevBusDetail(id, bus);
+		model.addAttribute("bus", bus);
+		System.out.println("postpostpo");
 		return "prebusDetail";
 	}
 	
