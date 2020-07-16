@@ -11,4 +11,5 @@ public interface BusService {
 	List<BusVO> select2020AllBus(Integer page, Integer start);
 	BusVO select2020prevBusDetail(Integer id);
 	BusVO selectBus(int bid);
+	int updateBus(BusVO bus);
 }
