@@ -59,4 +59,11 @@ public class TestController {
 		map.put("data", list);
 		return map;
 	}
+	
+	@RequestMapping("detail2020/{bid}")
+	public String detail2020(@PathVariable int bid, Model model) {
+		BusVO bus = service.selectBus(bid);
+		model.addAttribute("bus", bus);
+		return "detail2020";
+	}
 }

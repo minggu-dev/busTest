@@ -10,4 +10,5 @@ public interface BusDao {
 	int totalCount();
 	List<BusVO> select2020Allbus(Integer page, Integer start);
 	BusVO selectpre2020busDeatil(Integer id);
+	BusVO selectBus(int bid);
 }

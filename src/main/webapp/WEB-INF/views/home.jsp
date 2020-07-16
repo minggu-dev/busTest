@@ -9,6 +9,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css">
 
 <head>
 <title>Home</title>
@@ -22,15 +24,18 @@ $(function(){
 		location.href = "/pre2020";
 	})
 	
-	$('#myTable').DataTable({
+	var table = $('#myTable').DataTable({
 	    "pageLength" : 10,
 	    "bAutoWidth": true,
 	    "serverSide" : true,
 	    "processing" : true,
 	    "ajax": "/test",
 	    "columns": [
+	    	{"data": "bid"},
 	    	{"data": "busym"},
-	    	{"data": "routeid"},
+	    	{"data": "routeid", "render" : function(data, type, full, meta){
+	    		return '<a href="detail2020/' + full.bid + '">' + data + '</a>';
+	    	}},
 	    	{"data": "routeno"},
 	    	{"data": "routename"},
 	    	{"data": "busstopid"},
@@ -85,6 +90,15 @@ $(function(){
 	    	{"data": "bus23ON"},
 	    	{"data": "bus23OFF"},
 	    	{"data": "postdate"}	    	
+	    ],
+	    "select" : {
+	    	style : "single"
+	    },
+	    "columnDefs":[
+	    	{
+	    		targets: 0, 
+	    		visible: false
+	    	}
 	    ]
 	} );
 })
@@ -106,7 +120,7 @@ $(function(){
 		<table id="myTable" class="display">
 		    <thead>
 		        <tr>
-		        	<th>사용년월</th><th>노선ID</th><th>노선번호</th><th>노선명</th><th>표준버스정류장ID</th><th>버스정류장ARS번호</th><th>역명</th><th>00시승차총승객수</th><th>00시하차총승객수</th><th>1시승차총승객수</th><th>1시하차총승객수</th><th>2시승차총승객수</th><th>2시하차총승객수</th><th>3시승차총승객수</th><th>3시하차총승객수</th><th>4시승차총승객수</th><th>4시하차총승객수</th><th>5시승차총승객수</th><th>5시하차총승객수</th><th>6시승차총승객수</th><th>6시하차총승객수</th><th>7시승차총승객수</th><th>7시하차총승객수</th><th>8시승차총승객수</th><th>8시하차총승객수</th><th>9시승차총승객수</th><th>9시하차총승객수</th><th>10시승차총승객수</th><th>10시하차총승객수</th><th>11시승차총승객수</th><th>11시하차총승객수</th><th>12시승차총승객수</th><th>12시하차총승객수</th><th>13시승차총승객수</th><th>13시하차총승객수</th><th>14시승차총승객수</th><th>14시하차총승객수</th><th>15시승차총승객수</th><th>15시하차총승객수</th><th>16시승차총승객수</th><th>16시하차총승객수</th><th>17시승차총승객수</th><th>17시하차총승객수</th><th>18시승차총승객수</th><th>18시하차총승객수</th><th>19시승차총승객수</th><th>19시하차총승객수</th><th>20시승차총승객수</th><th>20시하차총승객수</th><th>21시승차총승객수</th><th>21시하차총승객수</th><th>22시승차총승객수</th><th>22시하차총승객수</th><th>23시승차총승객수</th><th>23시하차총승객수</th><th>등록일자</th>
+		        	<th>bid</th><th>사용년월</th><th>노선ID</th><th>노선번호</th><th>노선명</th><th>표준버스정류장ID</th><th>버스정류장ARS번호</th><th>역명</th><th>00시승차총승객수</th><th>00시하차총승객수</th><th>1시승차총승객수</th><th>1시하차총승객수</th><th>2시승차총승객수</th><th>2시하차총승객수</th><th>3시승차총승객수</th><th>3시하차총승객수</th><th>4시승차총승객수</th><th>4시하차총승객수</th><th>5시승차총승객수</th><th>5시하차총승객수</th><th>6시승차총승객수</th><th>6시하차총승객수</th><th>7시승차총승객수</th><th>7시하차총승객수</th><th>8시승차총승객수</th><th>8시하차총승객수</th><th>9시승차총승객수</th><th>9시하차총승객수</th><th>10시승차총승객수</th><th>10시하차총승객수</th><th>11시승차총승객수</th><th>11시하차총승객수</th><th>12시승차총승객수</th><th>12시하차총승객수</th><th>13시승차총승객수</th><th>13시하차총승객수</th><th>14시승차총승객수</th><th>14시하차총승객수</th><th>15시승차총승객수</th><th>15시하차총승객수</th><th>16시승차총승객수</th><th>16시하차총승객수</th><th>17시승차총승객수</th><th>17시하차총승객수</th><th>18시승차총승객수</th><th>18시하차총승객수</th><th>19시승차총승객수</th><th>19시하차총승객수</th><th>20시승차총승객수</th><th>20시하차총승객수</th><th>21시승차총승객수</th><th>21시하차총승객수</th><th>22시승차총승객수</th><th>22시하차총승객수</th><th>23시승차총승객수</th><th>23시하차총승객수</th><th>등록일자</th>
 		        </tr>
 		    </thead>
 		    <tbody>

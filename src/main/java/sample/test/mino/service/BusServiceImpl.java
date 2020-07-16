@@ -34,4 +34,7 @@ public class BusServiceImpl implements BusService {
 		return dao.selectpre2020busDeatil(id);
 	}
 
+	public BusVO selectBus(int bid) {
+		return dao.selectBus(bid);
+	}
 }
