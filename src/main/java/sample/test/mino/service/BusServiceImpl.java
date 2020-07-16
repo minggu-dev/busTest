@@ -37,4 +37,8 @@ public class BusServiceImpl implements BusService {
 	public BusVO selectBus(int bid) {
 		return dao.selectBus(bid);
 	}
+	@Override
+	public int updateBus(BusVO bus) {
+		return dao.updateBus(bus);
+	}
 }
