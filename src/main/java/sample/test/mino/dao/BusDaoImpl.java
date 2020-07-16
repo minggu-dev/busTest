@@ -34,4 +34,9 @@ public class BusDaoImpl implements BusDao {
 		RowBounds rowBounds = new RowBounds(start, page);
 		return sqlSession.selectList(Namespace + ".select2020BusList", start, rowBounds);
 	}
+
+	@Override
+	public BusVO selectpre2020busDeatil(Integer id) {
+		return sqlSession.selectOne(Namespace+".selectPre2020busDeatil", id);
+	}
 }

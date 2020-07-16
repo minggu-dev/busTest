@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +29,13 @@ public class TestController {
 	@RequestMapping(value="/pre2020", method=RequestMethod.GET)
 	public String preindex() {
 		return "pre2020";
+	}
+	
+	@RequestMapping(value="/pre2020/{id}")
+	public String prebusDetail(Model model, @PathVariable Integer id) {
+		BusVO bus = service.select2020prevBusDetail(id);
+		model.addAttribute("bus", bus);
+		return "prebusDetail";
 	}
 	
 	@ResponseBody

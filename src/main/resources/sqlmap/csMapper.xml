@@ -8,4 +8,8 @@
 		FROM (SELECT ROWNUM AS RNUM, A.* 
 			FROM "2020PreBusTable" A)
 	</select>
+	
+	<select id="selectPre2020busDeatil" resultType="busVO" parameterType="int">
+		SELECT A.* FROM "2020PreBusTable" A WHERE BID = #{id}
+	</select>
 </mapper>

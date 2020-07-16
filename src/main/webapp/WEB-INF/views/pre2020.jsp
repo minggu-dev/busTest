@@ -30,8 +30,15 @@ $(function(){
          ordering: true,
          bServerSide: true,
 	    "columns": [
+	    	{"data": "bid"},
 	    	{"data": "busym"},
-	    	{"data": "routeid"},
+	    	{"data": "routeid",
+    		 "render": function(data, type, row, meta){
+ 			     if(type === 'display'){
+ 			        data = '<a href="/pre2020/'+row.bid+'">' + data + '</a>';
+ 			     }
+ 			     return data;
+ 			}},
 	    	{"data": "routeno"},
 	    	{"data": "routename"},
 	    	{"data": "busstopid"},
@@ -85,8 +92,14 @@ $(function(){
 	    	{"data": "bus22OFF"},
 	    	{"data": "bus23ON"},
 	    	{"data": "bus23OFF"},
-	    	{"data": "postdate"}	    	
-	    ]
+	    	{"data": "postdate"},
+	    ],
+		columnDefs : [{
+			"targets": 0,
+			"visible":false,
+			}
+        ]
+
 	} );
 })
 </script>
@@ -107,7 +120,7 @@ $(function(){
 		<table id="myTable" class="display">
 		    <thead>
 		        <tr>
-		        	<th>사용년월</th><th>노선ID</th><th>노선번호</th><th>노선명</th><th>표준버스정류장ID</th><th>버스정류장ARS번호</th><th>역명</th><th>00시승차총승객수</th><th>00시하차총승객수</th><th>1시승차총승객수</th><th>1시하차총승객수</th><th>2시승차총승객수</th><th>2시하차총승객수</th><th>3시승차총승객수</th><th>3시하차총승객수</th><th>4시승차총승객수</th><th>4시하차총승객수</th><th>5시승차총승객수</th><th>5시하차총승객수</th><th>6시승차총승객수</th><th>6시하차총승객수</th><th>7시승차총승객수</th><th>7시하차총승객수</th><th>8시승차총승객수</th><th>8시하차총승객수</th><th>9시승차총승객수</th><th>9시하차총승객수</th><th>10시승차총승객수</th><th>10시하차총승객수</th><th>11시승차총승객수</th><th>11시하차총승객수</th><th>12시승차총승객수</th><th>12시하차총승객수</th><th>13시승차총승객수</th><th>13시하차총승객수</th><th>14시승차총승객수</th><th>14시하차총승객수</th><th>15시승차총승객수</th><th>15시하차총승객수</th><th>16시승차총승객수</th><th>16시하차총승객수</th><th>17시승차총승객수</th><th>17시하차총승객수</th><th>18시승차총승객수</th><th>18시하차총승객수</th><th>19시승차총승객수</th><th>19시하차총승객수</th><th>20시승차총승객수</th><th>20시하차총승객수</th><th>21시승차총승객수</th><th>21시하차총승객수</th><th>22시승차총승객수</th><th>22시하차총승객수</th><th>23시승차총승객수</th><th>23시하차총승객수</th><th>등록일자</th>
+		        	<th>ID</th><th>사용년월</th><th>노선ID</th><th>노선번호</th><th>노선명</th><th>표준버스정류장ID</th><th>버스정류장ARS번호</th><th>역명</th><th>00시승차총승객수</th><th>00시하차총승객수</th><th>1시승차총승객수</th><th>1시하차총승객수</th><th>2시승차총승객수</th><th>2시하차총승객수</th><th>3시승차총승객수</th><th>3시하차총승객수</th><th>4시승차총승객수</th><th>4시하차총승객수</th><th>5시승차총승객수</th><th>5시하차총승객수</th><th>6시승차총승객수</th><th>6시하차총승객수</th><th>7시승차총승객수</th><th>7시하차총승객수</th><th>8시승차총승객수</th><th>8시하차총승객수</th><th>9시승차총승객수</th><th>9시하차총승객수</th><th>10시승차총승객수</th><th>10시하차총승객수</th><th>11시승차총승객수</th><th>11시하차총승객수</th><th>12시승차총승객수</th><th>12시하차총승객수</th><th>13시승차총승객수</th><th>13시하차총승객수</th><th>14시승차총승객수</th><th>14시하차총승객수</th><th>15시승차총승객수</th><th>15시하차총승객수</th><th>16시승차총승객수</th><th>16시하차총승객수</th><th>17시승차총승객수</th><th>17시하차총승객수</th><th>18시승차총승객수</th><th>18시하차총승객수</th><th>19시승차총승객수</th><th>19시하차총승객수</th><th>20시승차총승객수</th><th>20시하차총승객수</th><th>21시승차총승객수</th><th>21시하차총승객수</th><th>22시승차총승객수</th><th>22시하차총승객수</th><th>23시승차총승객수</th><th>23시하차총승객수</th><th>등록일자</th>
 		        </tr>
 		    </thead>
 		    <tbody>
