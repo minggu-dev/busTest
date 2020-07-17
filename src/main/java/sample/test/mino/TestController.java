@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,10 +32,20 @@ public class TestController {
 		return "pre2020";
 	}
 	
-	@RequestMapping(value="/pre2020/{id}")
+	@RequestMapping(value="/pre2020/{id}", method = RequestMethod.GET)
 	public String prebusDetail(Model model, @PathVariable Integer id) {
 		BusVO bus = service.select2020prevBusDetail(id);
 		model.addAttribute("bus", bus);
+		System.out.println("getgetegeteget");
+		return "prebusDetail";
+	}
+	
+	@RequestMapping(value="/pre2020/{id}", method = RequestMethod.POST)
+	public String updateprebusDetail(Model model, @PathVariable Integer id, BusVO bus) {
+		System.out.println("id의 값은 뭘까요? "+id);
+		int updateBus = service.update2020prevBusDetail(id, bus);
+		model.addAttribute("bus", bus);
+		System.out.println("postpostpo");
 		return "prebusDetail";
 	}
 	
@@ -65,5 +76,11 @@ public class TestController {
 		BusVO bus = service.selectBus(bid);
 		model.addAttribute("bus", bus);
 		return "detail2020";
+	}
+	
+	@PostMapping("busUpdate2020")
+	public String update2020(BusVO bus) {
+		service.updateBus(bus);
+		return "redirect:/detail2020/" + bus.getBID();
 	}
 }

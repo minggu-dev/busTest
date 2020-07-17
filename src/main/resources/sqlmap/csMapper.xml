@@ -12,4 +12,10 @@
 	<select id="selectPre2020busDeatil" resultType="busVO" parameterType="int">
 		SELECT A.* FROM "2020PreBusTable" A WHERE BID = #{id}
 	</select>
+	
+	<update id="updatePre2020busDeatil" parameterType="Map">
+		UPDATE "2020PreBusTable" SET ROUTEID = #{bus.ROUTEID}, ROUTENO =#{bus.ROUTENO} ,BUSSTOPID =#{bus.BUSSTOPID},
+		BUSSTOPARS= #{bus.BUSSTOPARS}, BUSSTOPNAME =#{bus.BUSSTOPNAME}, BUSYM = #{bus.BUSYM}, ROUTENAME = #{bus.ROUTENAME}
+		WHERE BID = #{id}
+	</update>
 </mapper>

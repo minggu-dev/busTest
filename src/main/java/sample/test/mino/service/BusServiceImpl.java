@@ -37,4 +37,14 @@ public class BusServiceImpl implements BusService {
 	public BusVO selectBus(int bid) {
 		return dao.selectBus(bid);
 	}
+
+	@Override
+	public int update2020prevBusDetail(Integer id, BusVO bus) {
+		return dao.update2020prevBusDetail(id, bus);
+	}
+	
+	@Override
+	public int updateBus(BusVO bus) {
+		return dao.updateBus(bus);
+	}
 }
