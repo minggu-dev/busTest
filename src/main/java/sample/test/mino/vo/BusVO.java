@@ -1,5 +1,5 @@
 package sample.test.mino.vo;
-import java.util.Date;
+
 public class BusVO {
 	private int BID;
 	private String BUSYM;

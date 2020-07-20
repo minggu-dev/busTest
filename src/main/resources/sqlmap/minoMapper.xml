@@ -35,4 +35,15 @@
 		BUSSTOPID = #{BUSSTOPID}, BUSSTOPARS = #{BUSSTOPARS}, BUSSTOPNAME = #{BUSSTOPNAME}, PDATE = TO_DATE(#{POSTDATE},'YYYY-MM')
 		WHERE BID = #{BID}
 	</update>
+	
+	<select id="select2020bus100" resultType="busVO">
+		SELECT TO_CHAR(PDATE, 'YYYY-MM') AS POSTDATE, B.*
+		FROM BUSTABLE2020 B
+		WHERE rownum <![CDATA[<=]]> 100
+	</select>
+	
+	<insert id="insert2020bus" parameterType="busDTO">
+		INSERT INTO BUSTABLE2020(BUSYM,ROUTEID,ROUTENO,ROUTENAME,BUSSTOPID,BUSSTOPARS,BUSSTOPNAME,BUS00ON,BUS00OFF,BUS01ON,BUS01OFF,BUS02ON,BUS02OFF,BUS03ON,BUS03OFF,BUS04ON,BUS04OFF,BUS05ON,BUS05OFF,BUS06ON,BUS06OFF,BUS07ON,BUS07OFF,BUS08ON,BUS08OFF,BUS09ON,BUS09OFF,BUS10ON,BUS10OFF,BUS11ON,BUS11OFF,BUS12ON,BUS12OFF,BUS13ON,BUS13OFF,BUS14ON,BUS14OFF,BUS15ON,BUS15OFF,BUS16ON,BUS16OFF,BUS17ON,BUS17OFF,BUS18ON,BUS18OFF,BUS19ON,BUS19OFF,BUS20ON,BUS20OFF,BUS21ON,BUS21OFF,BUS22ON,BUS22OFF,BUS23ON,BUS23OFF,PDATE,BID)
+		VALUES(#{busym},#{routeid},#{routeno},#{routename},#{busstopid},#{busstopars},#{busstopname},#{bus00on},#{bus00off},#{bus01on},#{bus01off},#{bus02on},#{bus02off},#{bus03on},#{bus03off},#{bus04on},#{bus04off},#{bus05on},#{bus05off},#{bus06on},#{bus06off},#{bus07on},#{bus07off},#{bus08on},#{bus08off},#{bus09on},#{bus09off},#{bus10on},#{bus10off},#{bus11on},#{bus11off},#{bus12on},#{bus12off},#{bus13on},#{bus13off},#{bus14on},#{bus14off},#{bus15on},#{bus15off},#{bus16on},#{bus16off},#{bus17on},#{bus17off},#{bus18on},#{bus18off},#{bus19on},#{bus19off},#{bus20on},#{bus20off},#{bus21on},#{bus21off},#{bus22on},#{bus22off},#{bus23on},#{bus23off},TO_DATE(#{postdate},'YYYY-MM'),#{bid})
+	</insert>
 </mapper>

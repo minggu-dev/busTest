@@ -10,5 +10,6 @@
 	<typeAliases>
 		<typeAlias alias="busVO" type="sample.test.mino.vo.BusVO"/>
 		<typeAlias alias="page" type="sample.test.mino.vo.PageVO"/>
+		<typeAlias alias="busDTO" type="sample.test.mino.vo.BusDTO"/>
 	</typeAliases>
 </configuration>

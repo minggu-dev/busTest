@@ -10,6 +10,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import sample.test.mino.vo.BusDTO;
 import sample.test.mino.vo.BusVO;
 import sample.test.mino.vo.PageVO;
 
@@ -54,5 +55,15 @@ public class BusDaoImpl implements BusDao {
 	@Override
 	public int updateBus(BusVO bus) {
 		return sqlSession.update(Namespace2020 + ".updateBus", bus);
+	}
+	
+	@Override
+	public List<BusVO> select2020bus100() {
+		return sqlSession.selectList(Namespace2020 + ".select2020bus100");
+	}
+	
+	@Override
+	public int insertBus(BusDTO bus) {
+		return sqlSession.insert(Namespace2020 + ".insert2020bus", bus);
 	}
 }

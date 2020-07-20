@@ -2,6 +2,7 @@ package sample.test.mino.dao;
 
 import java.util.List;
 
+import sample.test.mino.vo.BusDTO;
 import sample.test.mino.vo.BusVO;
 import sample.test.mino.vo.PageVO;
 
@@ -12,4 +13,6 @@ public interface BusDao {
 	BusVO selectpre2020busDeatil(Integer id);
 	BusVO selectBus(int bid);
 	int updateBus(BusVO bus);
+	List<BusVO> select2020bus100();
+	int insertBus(BusDTO bus);
 }

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import sample.test.mino.service.BusService;
+import sample.test.mino.vo.BusDTO;
 import sample.test.mino.vo.BusVO;
 import sample.test.mino.vo.PageVO;
 
@@ -72,5 +79,28 @@ public class TestController {
 	public String update2020(BusVO bus) {
 		service.updateBus(bus);
 		return "redirect:/detail2020/" + bus.getBID();
+	}
+	
+	@RequestMapping("down2020")
+	public void down2020(HttpServletResponse response) {
+		service.down2020(response);
+	}
+	
+	@RequestMapping("/{url}")
+	public void url() {}
+	
+	@PostMapping("/upload2020")
+	public void upload(String jsonObj) {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			BusDTO[] busArr = mapper.readValue(jsonObj, BusDTO[].class);
+			service.insertBus(busArr);
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
